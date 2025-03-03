@@ -6,15 +6,22 @@ class AppStoreLogin extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double buttonSize = MediaQuery.of(context).size.width * 0.14;
+    double iconSize = buttonSize * 0.35;
+
     return Container(
-      height: 60,
-      width: 60,
+      height: buttonSize,
+      width: buttonSize,
       decoration: BoxDecoration(
-          color: Colors.white.withOpacity(0.2),
-          border: Border.all(color: Colors.white.withOpacity(0.2)),
-          borderRadius: BorderRadius.circular(18)
+        color: Colors.white.withOpacity(0.2),
+        border: Border.all(color: Colors.white.withOpacity(0.2)),
+        borderRadius: BorderRadius.circular(buttonSize * 0.3),
       ),
-      child: const Icon(FontAwesomeIcons.apple,size: 24,color: Colors.white,),
+      child: Icon(
+        FontAwesomeIcons.apple,
+        size: iconSize,
+        color: Colors.white,
+      ),
     );
   }
 }
