@@ -2,33 +2,62 @@ import 'package:flutter/material.dart';
 
 class CustomTextStyle {
   // Euclid Circular A Font Stilleri
-  static TextStyle regular = TextStyle(
+  static TextStyle regular = const TextStyle(
     fontFamily: 'EuclidCircularA',
     fontWeight: FontWeight.normal,
     fontSize: 16, // Yazı boyutunu buradan ayarlayabilirsiniz
     color: AppColors.primaryTextColor, // Varsayılan metin rengi
   );
 
-  static TextStyle circular18px600wWhite = TextStyle(
+  static TextStyle circular18px600wWhite = const TextStyle(
     fontFamily: 'EuclidCircularA',
     fontWeight: FontWeight.w600,
     fontSize: 18,
     color: Color(0xffFFFFFF),
   );
 
-  static TextStyle circular13px400wWhite = TextStyle(
+  static TextStyle circular13px400wWhite = const TextStyle(
     fontFamily: 'EuclidCircularA',
     fontWeight: FontWeight.w400,
     fontSize: 13,
     color: Color(0xffFFFFFF),
   );
 
-  static TextStyle bold = TextStyle(
+  static TextStyle circular12px400wWhite = const TextStyle(
+    fontFamily: 'EuclidCircularA',
+    fontWeight: FontWeight.w400,
+    fontSize: 12,
+    color: Color(0xffFFFFFF),
+  );
+
+  static TextStyle circular15px500wWhite = const TextStyle(
+    fontFamily: 'EuclidCircularA',
+    fontWeight: FontWeight.w500,
+    fontSize: 12,
+    color: Color(0xffFFFFFF),
+  );
+
+  static TextStyle circular12px400wWhiteOpacity50 = TextStyle(
+    fontFamily: 'EuclidCircularA',
+    fontWeight: FontWeight.w400,
+    fontSize: 12,
+    color: const Color(0xffFFFFFF).withOpacity(0.5),
+  );
+
+  static TextStyle bold = const TextStyle(
     fontFamily: 'EuclidCircularA',
     fontWeight: FontWeight.bold,
     fontSize: 16,
     color: AppColors.primaryTextColor, // Başlık veya vurgu için
   );
+
+  static TextStyle circular15pxMedium = const TextStyle(
+    fontFamily: 'EuclidCircularA',
+    fontWeight: FontWeight.w500,
+    fontSize: 15,
+    color: Color(0xffFFFFFF),
+  );
+
 }
 
 class AppColors {

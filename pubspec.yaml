@@ -37,6 +37,7 @@ dependencies:
   cupertino_icons: ^1.0.8
   provider: ^6.1.2
   iconly: ^1.0.1
+  font_awesome_flutter: ^10.0.0
 
 dev_dependencies:
   flutter_test:
@@ -80,6 +81,7 @@ flutter:
     - family: EuclidCircularA
       fonts:
         - asset: assets/fonts/Euclid Circular A Regular.ttf
+        - asset: assets/fonts/Euclid Circular A Medium.ttf
 
   #
   # For details regarding fonts from package dependencies,
