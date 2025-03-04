@@ -2,10 +2,10 @@ import 'package:cinematch/constants/ui_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:iconly/iconly.dart';
 
-class EmailField extends StatelessWidget {
+class RegisterPageNameSurnameField extends StatelessWidget {
   final TextEditingController controller;
 
-  const EmailField({Key? key, required this.controller}) : super(key: key);
+  const RegisterPageNameSurnameField({Key? key, required this.controller}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +14,7 @@ class EmailField extends StatelessWidget {
       controller: controller,
       decoration: InputDecoration(
         labelStyle: CustomTextStyle.circular12px400wWhiteOpacity50,
-        labelText: 'E-Posta',
+        labelText: 'Ad Soyad',
         filled: true,
         fillColor: Colors.white.withOpacity(0.2),
         enabledBorder: OutlineInputBorder(
@@ -28,7 +28,7 @@ class EmailField extends StatelessWidget {
         ),
         prefixIcon: const Padding(
           padding: EdgeInsets.only(left: 24,right: 8),
-          child: Icon(IconlyLight.message, color: Colors.white,size: 14,),
+          child: Icon(IconlyLight.user, color: Colors.white,size: 14,),
         ),
       ),
     );

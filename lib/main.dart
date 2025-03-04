@@ -1,3 +1,4 @@
+import 'package:cinematch/features/auth/providers/auth_provider.dart';
 import 'package:cinematch/providers/root_screen_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -8,8 +9,11 @@ import 'features/auth/screens/login_screen/login_screen.dart';
 
 void main() {
   runApp(
-    ChangeNotifierProvider(
-      create: (context) => RootScreenProvider(),
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider<RootScreenProvider>(create: (context) => RootScreenProvider(),),
+        ChangeNotifierProvider<AuthProvider>(create: (context) => AuthProvider(),),
+      ],
       child: const MyApp(),
     ),
   );

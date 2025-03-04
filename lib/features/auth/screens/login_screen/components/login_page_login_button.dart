@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import '../../../../../constants/ui_theme.dart';
 
-class LoginButton extends StatelessWidget {
+class LoginPageLoginButton extends StatelessWidget {
   final VoidCallback onPressed;
 
-  const LoginButton({Key? key, required this.onPressed}) : super(key: key);
+  const LoginPageLoginButton({Key? key, required this.onPressed}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

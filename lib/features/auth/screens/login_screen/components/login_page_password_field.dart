@@ -2,16 +2,16 @@ import 'package:cinematch/constants/ui_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:iconly/iconly.dart';
 
-class PasswordField extends StatefulWidget {
+class LoginPagePasswordField extends StatefulWidget {
   final TextEditingController controller;
 
-  const PasswordField({Key? key, required this.controller}) : super(key: key);
+  const LoginPagePasswordField({Key? key, required this.controller}) : super(key: key);
 
   @override
-  _PasswordFieldState createState() => _PasswordFieldState();
+  _LoginPagePasswordFieldordFieldState createState() => _LoginPagePasswordFieldordFieldState();
 }
 
-class _PasswordFieldState extends State<PasswordField> {
+class _LoginPagePasswordFieldordFieldState extends State<LoginPagePasswordField> {
   bool _isObscure = true;
 
   @override
