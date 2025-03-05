@@ -22,6 +22,12 @@ class CustomTextStyle {
     fontSize: 13,
     color: Color(0xffFFFFFF),
   );
+  static TextStyle circular13px700wWhite = const TextStyle(
+    fontFamily: 'EuclidCircularA',
+    fontWeight: FontWeight.w700,
+    fontSize: 13,
+    color: Color(0xffFFFFFF),
+  );
 
   static TextStyle circular12px400wWhite = const TextStyle(
     fontFamily: 'EuclidCircularA',

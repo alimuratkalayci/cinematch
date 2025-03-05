@@ -11,32 +11,35 @@ class ProfileIdCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(16.0),
+      padding: const EdgeInsets.only(bottom: 32),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
           CircleAvatar(
             radius: 32,
             backgroundImage: NetworkImage(photoUrl ?? ''),
           ),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                name,
-                style: CustomTextStyle.circular15px500wWhite
-              ),
-              SizedBox(height: 4),
-              Text(
-                'ID: $id',
-                style: CustomTextStyle.circular12px400wWhiteOpacity50,
-                overflow: TextOverflow.ellipsis,
-                maxLines: 1,
-              )
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Text(
+                  name,
+                  style: CustomTextStyle.circular15px500wWhite
+                ),
+                Text(
+                  'ID: ${id.substring(0,6)}',
+                  style: CustomTextStyle.circular12px400wWhiteOpacity50,
+                  overflow: TextOverflow.ellipsis,
+                  maxLines: 1,
+                )
 
-            ],
+              ],
+            ),
           ),
-
+          Spacer(),
           ElevatedButton(
             onPressed: () {
               Navigator.push(

@@ -17,33 +17,38 @@ class _ProfileScreenState extends State<ProfileScreen> {
   @override
   void initState() {
     super.initState();
-    context.watch()<ProfilePageProvider>().fetchProfileDatas();
-
+    Future.microtask(() {
+      context.read<ProfilePageProvider>().fetchProfileDatas();
+    });
   }
 
   @override
   Widget build(BuildContext context) {
+    final profilePageProvider = context.watch<ProfilePageProvider>();
+    final profileData = profilePageProvider.profileData;
+
     return Scaffold(
       backgroundColor: AppColors.backgroundColor,
       appBar: const CustomAppBar(title: 'Profil', showLimitedOffer: true),
-      body: Consumer<ProfilePageProvider>(
-        builder: (context, profilePageProvider, child) {
-          final profileData = profilePageProvider.profileData;
-          if (profileData == null) {
-            return const Center(child: CircularProgressIndicator());
-          }
-          return Column(
-            children: [
-              ProfileIdCard(
-                id: profileData.id,
-                name: profileData.name,
-                photoUrl: profileData.photoUrl,
+      body: profileData == null
+          ? const Center(child: CircularProgressIndicator())
+          : Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  ProfileIdCard(
+                    id: profileData.id,
+                    name: profileData.name,
+                    photoUrl: profileData.photoUrl,
+                  ),
+                  Text(
+                    'Beğendiğim Filmler',
+                    style: CustomTextStyle.circular13px700wWhite,
+                  ),
+                ],
               ),
-            ],
-          );
-        },
-      ),
+            ),
     );
   }
 }
-
