@@ -19,7 +19,7 @@ class LoginPageLoginButton extends StatelessWidget {
       ),
       child: Text(
         'Giriş Yap',
-        style: CustomTextStyle.circular15pxMedium,
+        style: CustomTextStyle.circular15pxMediumWhite,
       ),
     );
   }

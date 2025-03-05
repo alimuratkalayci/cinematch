@@ -1,3 +1,4 @@
+import 'package:cinematch/components/custom_modal_bottom_sheet.dart';
 import 'package:cinematch/features/auth/providers/auth_provider.dart';
 import 'package:cinematch/features/auth/screens/login_screen/components/alternative_logins/login_page_app_store_login.dart';
 import 'package:cinematch/features/auth/screens/login_screen/components/alternative_logins/login_page_facebook_login.dart';
@@ -82,6 +83,12 @@ class LoginScreen extends StatelessWidget {
                                   onPressed: () async {
                                     final email = emailController.text;
                                     final password = passwordController.text;
+
+                                    if (email.isEmpty || password.isEmpty) {
+                                      showCustomModal(context: context, title: 'Hata', message: 'Boş alan bırakılmaz.');
+                                      return;
+                                    }
+
                                     try {
                                       await Provider.of<AuthProvider>(context,
                                               listen: false)
@@ -93,12 +100,7 @@ class LoginScreen extends StatelessWidget {
                                               builder: (BuildContext context) =>
                                                   RootScreen()));
                                     } catch (e) {
-                                      ScaffoldMessenger.of(context)
-                                          .showSnackBar(
-                                        SnackBar(
-                                            content:
-                                                Text('Giriş başarısız: $e')),
-                                      );
+                                      showCustomModal(context: context, title: 'Giriş başarısız', message: 'Lütfen bilgilerinizi kontrol edin');
                                     }
                                   },
                                 ),

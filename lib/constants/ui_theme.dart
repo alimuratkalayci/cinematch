@@ -48,10 +48,10 @@ class CustomTextStyle {
     fontFamily: 'EuclidCircularA',
     fontWeight: FontWeight.bold,
     fontSize: 16,
-    color: AppColors.primaryTextColor, // Başlık veya vurgu için
+    color: AppColors.primaryTextColor,
   );
 
-  static TextStyle circular15pxMedium = const TextStyle(
+  static TextStyle circular15pxMediumWhite = const TextStyle(
     fontFamily: 'EuclidCircularA',
     fontWeight: FontWeight.w500,
     fontSize: 15,
@@ -62,11 +62,11 @@ class CustomTextStyle {
 
 class AppColors {
   // Uygulama renkleri
-  static const Color primaryColor = Color(0xFF6200EE); // Ana renk
-  static const Color secondaryColor = Color(0xFF03DAC6); // İkinci renk
-  static const Color backgroundColor = Color(0xff090909); // Arka plan rengi
-  static const Color primaryTextColor = Color(0xFF212121); // Ana metin rengi
-  static const Color secondaryTextColor = Color(0xFF757575); // İkinci metin rengi
-  static const Color accentColor = Color(0xFFFFC107); // Vurgulama rengi
-  static const Color errorColor = Color(0xFFB00020); // Hata rengi
+  static const Color primaryColor = Color(0xFF6200EE);
+  static const Color secondaryColor = Color(0xFF03DAC6);
+  static const Color backgroundColor = Color(0xff090909);
+  static const Color primaryTextColor = Color(0xFF212121);
+  static const Color secondaryTextColor = Color(0xFF757575);
+  static const Color accentColor = Color(0xFFFFC107);
+  static const Color errorColor = Color(0xFFB00020);
 }

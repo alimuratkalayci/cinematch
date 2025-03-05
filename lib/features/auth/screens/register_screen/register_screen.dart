@@ -1,3 +1,4 @@
+import 'package:cinematch/components/custom_modal_bottom_sheet.dart';
 import 'package:cinematch/features/auth/providers/auth_provider.dart';
 import 'package:cinematch/features/auth/screens/login_screen/login_screen.dart';
 import 'package:cinematch/features/auth/screens/register_screen/components/alternative_logins/register_page_app_store_login.dart';
@@ -113,7 +114,19 @@ class RegisterScreen extends StatelessWidget {
                                   onPressed: () async {
                                     final email = emailController.text;
                                     final password = passwordController.text;
+                                    final passwordRepeat = passwordRepeatController.text;
                                     final name = nameController.text;
+
+                                    if (email.isEmpty || password.isEmpty || passwordRepeat.isEmpty || name.isEmpty) {
+                                      showCustomModal(context: context, title: 'Hata', message: 'Boş alan bırakılmaz.');
+                                      return;
+                                    }
+
+                                    if (password != passwordRepeat) {
+                                      showCustomModal(context: context, title: 'Hata', message: 'Şifreler uyuşmuyor.');
+                                      return;
+                                    }
+
                                     try {
                                       await Provider.of<AuthProvider>(context,
                                           listen: false)
@@ -124,19 +137,13 @@ class RegisterScreen extends StatelessWidget {
                                           MaterialPageRoute(
                                               builder: (BuildContext context) =>
                                                   LoginScreen()));
-                                      ScaffoldMessenger.of(context)
-                                          .showSnackBar(
-                                        SnackBar(
-                                            content:
-                                            Text('Kayıt olma başarılı')),
-                                      );
+
+                                      showCustomModal(context: context, title: 'Başarılı', message: 'Kayıt olma başarıyla tamamlandı, giriş yapabilirsiniz');
+
                                     } catch (e) {
-                                      ScaffoldMessenger.of(context)
-                                          .showSnackBar(
-                                        SnackBar(
-                                            content:
-                                            Text('Kayıt olma başarısız: $e')),
-                                      );
+
+                                      showCustomModal(context: context, title: 'Hata', message: 'Kayıt olma başarısız');
+
                                     }
                                   },
                                 ),

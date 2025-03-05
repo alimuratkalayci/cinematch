@@ -19,7 +19,7 @@ class RegisterPageSignUpButton extends StatelessWidget {
       ),
       child: Text(
         'Şimdi Kaydol',
-        style: CustomTextStyle.circular15pxMedium,
+        style: CustomTextStyle.circular15pxMediumWhite,
       ),
     );
   }
