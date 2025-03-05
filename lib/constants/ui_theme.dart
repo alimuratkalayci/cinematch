@@ -51,9 +51,23 @@ class CustomTextStyle {
     color: AppColors.primaryTextColor,
   );
 
+  static TextStyle circular13pxBoldWhite = const TextStyle(
+    fontFamily: 'EuclidCircularA',
+    fontWeight: FontWeight.bold,
+    fontSize: 13,
+    color: Color(0xffFFFFFF),
+  );
+
   static TextStyle circular15pxMediumWhite = const TextStyle(
     fontFamily: 'EuclidCircularA',
     fontWeight: FontWeight.w500,
+    fontSize: 15,
+    color: Color(0xffFFFFFF),
+  );
+
+  static TextStyle MontSerrat15pxMediumWhite = const TextStyle(
+    fontFamily: 'Montserrat',
+    fontWeight: FontWeight.w600,
     fontSize: 15,
     color: Color(0xffFFFFFF),
   );
@@ -69,4 +83,5 @@ class AppColors {
   static const Color secondaryTextColor = Color(0xFF757575);
   static const Color accentColor = Color(0xFFFFC107);
   static const Color errorColor = Color(0xFFB00020);
+  static const Color buttonRed = Color(0xffE50914);
 }

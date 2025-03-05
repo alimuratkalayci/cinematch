@@ -5,13 +5,12 @@ import 'package:flutter/material.dart';
 class ProfilePageProvider with ChangeNotifier {
   ProfilePageDataModel? _profilePageDataModel;
 
-  // Veriye daha kolay erişim sağlamak için getter ekledik.
   Data? get profileData => _profilePageDataModel?.data;
 
   final ProfileWebService _profileWebService = ProfileWebService();
 
   Future<void> fetchProfileDatas() async {
-    notifyListeners(); // Yükleniyor durumu için
+    notifyListeners();
     try {
       final response = await _profileWebService.fetchProfileDatas();
 

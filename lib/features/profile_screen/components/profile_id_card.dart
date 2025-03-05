@@ -18,7 +18,6 @@ class ProfileIdCard extends StatelessWidget {
           CircleAvatar(
             radius: 32,
             backgroundImage: NetworkImage(photoUrl ?? ''),
-            child: const Icon(Icons.person, size: 40),
           ),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,

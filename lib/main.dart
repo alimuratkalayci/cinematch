@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'features/auth/screens/login_screen/login_screen.dart';
+import 'features/profile_screen/provider/profile_page_provider.dart';
 
 
 
@@ -13,6 +14,7 @@ void main() {
       providers: [
         ChangeNotifierProvider<RootScreenProvider>(create: (context) => RootScreenProvider(),),
         ChangeNotifierProvider<AuthProvider>(create: (context) => AuthProvider(),),
+        ChangeNotifierProvider<ProfilePageProvider>(create: (context) => ProfilePageProvider(),),
       ],
       child: const MyApp(),
     ),
