@@ -16,9 +16,9 @@ class CustomNavBar extends StatelessWidget {
       color: AppColors.backgroundColor,
       child: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.all(8),
+          padding: const EdgeInsets.only(top: 16,bottom: 8),
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               GestureDetector(
                 onTap: () => pageProvider.changePage(0),
@@ -55,6 +55,7 @@ class CustomNavBar extends StatelessWidget {
                   ),
                 ),
               ),
+              SizedBox(width: 16,),
               GestureDetector(
                 onTap: () => pageProvider.changePage(1),
                 child: Container(

@@ -36,6 +36,13 @@ class CustomTextStyle {
     color: Color(0xffFFFFFF),
   );
 
+  static TextStyle circular12px500wWhite = const TextStyle(
+    fontFamily: 'EuclidCircularA',
+    fontWeight: FontWeight.w500,
+    fontSize: 12,
+    color: Color(0xffFFFFFF),
+  );
+
   static TextStyle circular15px500wWhite = const TextStyle(
     fontFamily: 'EuclidCircularA',
     fontWeight: FontWeight.w500,

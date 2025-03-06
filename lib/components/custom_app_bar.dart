@@ -19,7 +19,8 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      backgroundColor: AppColors.backgroundColor,
+      scrolledUnderElevation: 0,
+      backgroundColor: Colors.transparent,
       automaticallyImplyLeading: false,
       title: Stack(
         alignment: Alignment.center,

@@ -17,7 +17,13 @@ class ProfileIdCard extends StatelessWidget {
         children: [
           CircleAvatar(
             radius: 32,
-            backgroundImage: NetworkImage(photoUrl ?? ''),
+            backgroundImage: photoUrl.isNotEmpty
+                ? NetworkImage(photoUrl)
+                : null,
+            backgroundColor: Colors.grey[800],
+            child: photoUrl.isEmpty
+                ? Icon(Icons.person, color: Colors.white, size: 32)
+                : null,
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -44,7 +50,14 @@ class ProfileIdCard extends StatelessWidget {
             onPressed: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => PhotoAddPage()),
+                PageRouteBuilder(
+                  pageBuilder: (context, animation, secondaryAnimation) =>
+                      PhotoAddPage(),
+                  transitionsBuilder:
+                      (context, animation, secondaryAnimation, child) {
+                    return child;
+                  },
+                ),
               );
             },
             style: ElevatedButton.styleFrom(
