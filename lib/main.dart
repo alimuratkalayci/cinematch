@@ -9,6 +9,8 @@ import 'core/localization/app_localizations.dart';
 import 'features/auth/screens/login_screen/login_screen.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
+import 'features/splash_screen/splash_screen.dart';
+
 void main() {
   runApp(
     MultiProvider(
@@ -53,7 +55,7 @@ class MyApp extends StatelessWidget {
             Locale('tr', ''),
           ],
           locale: Locale(languageProvider.locale),
-          home: const LoginScreen(),
+          home: const SplashScreen(),
         );
       },
     );
