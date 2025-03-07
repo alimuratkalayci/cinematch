@@ -17,7 +17,8 @@ class PhotoAddPageProvider with ChangeNotifier {
 
   Future pickImage() async {
     try {
-      final XFile? pickedImage = await _picker.pickImage(source: ImageSource.gallery);
+      final XFile? pickedImage =
+          await _picker.pickImage(source: ImageSource.gallery);
       if (pickedImage != null) {
         _image = pickedImage;
         notifyListeners();
@@ -30,13 +31,15 @@ class PhotoAddPageProvider with ChangeNotifier {
   Future submitPhoto(BuildContext context) async {
     if (_image != null) {
       try {
-        final result = await _photoUrlService.postPhotoUrl(photo: File(_image!.path));
+        final result =
+            await _photoUrlService.postPhotoUrl(photo: File(_image!.path));
 
         if (result['success']) {
-
         } else {
           ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text('Fotoğraf yüklenirken hata oluştu: ${result['statusCode']} - ${result['body']}')),
+            SnackBar(
+                content: Text(
+                    'Fotoğraf yüklenirken hata oluştu: ${result['statusCode']} - ${result['body']}')),
           );
         }
       } catch (e) {

@@ -11,7 +11,8 @@ class HomeScreenWebService {
       throw Exception('Token eksik');
     }
 
-    final url = Uri.parse("https://caseapi.nodelabs.dev/movie/list?page=$pageIndex");
+    final url =
+        Uri.parse("https://caseapi.nodelabs.dev/movie/list?page=$pageIndex");
 
     try {
       final response = await http.get(

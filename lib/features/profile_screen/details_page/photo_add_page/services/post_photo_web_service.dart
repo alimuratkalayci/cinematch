@@ -49,10 +49,7 @@ class PostPhotoUrlWebService {
       }
     } catch (e) {
       print("API Hatası: $e");
-      return {
-        'success': false,
-        'error': e.toString()
-      };
+      return {'success': false, 'error': e.toString()};
     }
   }
 }

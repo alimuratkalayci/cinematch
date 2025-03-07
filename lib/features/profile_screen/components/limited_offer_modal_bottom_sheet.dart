@@ -1,7 +1,7 @@
 import 'package:cinematch/constants/ui_theme.dart';
+import 'package:cinematch/core/localization/app_localizations.dart';
 import 'package:flutter/material.dart';
-import 'package:iconly/iconly.dart';
-import 'package:lottie/lottie.dart'; // Add Lottie package import
+import 'package:lottie/lottie.dart';
 
 Future<void> limitedOfferModal({
   required BuildContext context,
@@ -34,8 +34,7 @@ Future<void> limitedOfferModal({
             ],
             stops: [0.1, 0.9],
           ),
-
-            borderRadius: BorderRadius.vertical(top: Radius.circular(32)),
+          borderRadius: BorderRadius.vertical(top: Radius.circular(32)),
         ),
         child: Padding(
           padding: const EdgeInsets.all(16.0),
@@ -54,23 +53,19 @@ Future<void> limitedOfferModal({
                 ),
               ),
               const SizedBox(height: 16),
-              Text('Sınırlı Teklif',
+              Text(AppLocalizations.of(context)!.translate('limited_offer'),
                   style: CustomTextStyle.circular18px600wWhite),
               Padding(
                 padding:
                     const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
                 child: Text(
-                  'Jeton paketin\'ni seçerek bonus kazanın ve yeni bölümlerin kilidini açın!',
-                  style: CustomTextStyle.circular12px400wWhite ??
-                      const TextStyle(
-                          fontSize: 12,
-                          fontWeight: FontWeight.w400,
-                          color: Colors.white),
+                  AppLocalizations.of(context)!
+                      .translate('choose_jeton_package'),
+                  style: CustomTextStyle.circular12px400wWhite,
                   textAlign: TextAlign.center,
                 ),
               ),
               const SizedBox(height: 16),
-              // Bonus options section with Lottie animations
               Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(24),
@@ -80,10 +75,11 @@ Future<void> limitedOfferModal({
                 ),
                 child: Column(
                   children: [
-                    const Padding(
+                    Padding(
                       padding: EdgeInsets.symmetric(vertical: 16),
                       child: Text(
-                        'Alacağınız Bonuslar',
+                        AppLocalizations.of(context)!
+                            .translate('bonuses_you_will_receive'),
                         style: TextStyle(
                             fontSize: 14,
                             fontWeight: FontWeight.w500,
@@ -91,22 +87,19 @@ Future<void> limitedOfferModal({
                         textAlign: TextAlign.center,
                       ),
                     ),
-                    // Row of Lottie animations for bonuses
                     Padding(
                       padding: const EdgeInsets.only(bottom: 16),
-                      child: buildLottieBonusOptions(),
+                      child: buildLottieBonusOptions(context),
                     ),
                   ],
                 ),
               ),
               const SizedBox(height: 20),
-              Text('Kilidi açmak için bir jeton paketi seçin',
+              Text(AppLocalizations.of(context)!.translate('select_token_pack'),
                   style: CustomTextStyle.circular15px500wWhite),
               const SizedBox(height: 12),
-              // Token package options with stacked percentage indicators
-              buildTokenPackages(),
+              buildTokenPackages(context),
               const SizedBox(height: 16),
-              // See all tokens button
               Padding(
                 padding: const EdgeInsets.only(bottom: 16),
                 child: Row(
@@ -123,7 +116,9 @@ Future<void> limitedOfferModal({
                         onPressed: () {
                           Navigator.of(context).pop();
                         },
-                        child: Text('Tüm Jetonları Gör',
+                        child: Text(
+                            AppLocalizations.of(context)!
+                                .translate('see_all_tokens'),
                             style: CustomTextStyle.circular15pxMediumWhite),
                       ),
                     ),
@@ -138,18 +133,21 @@ Future<void> limitedOfferModal({
   );
 }
 
-// New method for Lottie animations in the bonus section
-Widget buildLottieBonusOptions() {
+Widget buildLottieBonusOptions(BuildContext context) {
   return Row(
     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
     children: [
-      buildLottieBonusItem('Premium\nHesap',
+      buildLottieBonusItem(
+          '${AppLocalizations.of(context)!.translate('premium')} \n ${AppLocalizations.of(context)!.translate('account')}',
           'https://lottie.host/514b923b-7e7b-420a-a80d-44f58375cbb3/RFtgtJ5KVr.json'),
-      buildLottieBonusItem('Daha\nFazla Eşleşme',
+      buildLottieBonusItem(
+          '${AppLocalizations.of(context)!.translate('more')} \n ${AppLocalizations.of(context)!.translate('matches')}',
           'https://lottie.host/8b30e0f1-f389-4257-b591-c50dd3407469/CfmUwzcxca.json'),
-      buildLottieBonusItem('Öne\nÇıkarma',
+      buildLottieBonusItem(
+          '${AppLocalizations.of(context)!.translate('highlight')}',
           'https://lottie.host/78b0d79d-82cd-48f7-a125-577e8d7d343d/ITZP1la96B.json'),
-      buildLottieBonusItem('Daha\nFazla Beğeni',
+      buildLottieBonusItem(
+          '${AppLocalizations.of(context)!.translate('more')} \n ${AppLocalizations.of(context)!.translate('likes')}',
           'https://lottie.host/0c17a2cc-42ca-48c2-a7dc-14363206819e/8ubpugN5oK.json'),
     ],
   );
@@ -176,7 +174,6 @@ Widget buildLottieBonusItem(String text, String lottieUrl) {
             lottieUrl,
             fit: BoxFit.cover,
             errorBuilder: (context, error, stackTrace) {
-              // Fallback if Lottie fails to load
               return const Icon(Icons.error, color: Colors.white);
             },
           ),
@@ -192,42 +189,39 @@ Widget buildLottieBonusItem(String text, String lottieUrl) {
   );
 }
 
-Widget buildTokenPackages() {
+Widget buildTokenPackages(BuildContext context) {
   return Row(
     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
     children: [
-      buildTokenPackage('+10%', '200', '330', '99,99 TL'),
-      buildTokenPackage('+70%', '2.000', '3.375', '799,99 TL',
-          isHighlighted: true),
-      buildTokenPackage('+35%', '1.000', '1.350', '399,99 TL'),
+      buildTokenPackage('+10%', '200', '330', '99,99 TL', context),
+      buildTokenPackage(
+          '+70%', '2.000', '3.375', '799,99 TL', isHighlighted: true, context),
+      buildTokenPackage('+35%', '1.000', '1.350', '399,99 TL', context),
     ],
   );
 }
 
-Widget buildTokenPackage(
-    String bonusText, String baseAmount, String totalAmount, String price,
+Widget buildTokenPackage(String bonusText, String baseAmount,
+    String totalAmount, String price, BuildContext context,
     {bool isHighlighted = false}) {
   return Stack(
     clipBehavior: Clip.none,
     children: [
-      // The main token package container
       Container(
         width: 100,
         padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 8),
         decoration: BoxDecoration(
-          border: Border.all(color: Colors.white.withOpacity(0.2),width: 1),
-          // Remove the color property when using gradient for the highlighted item
+          border: Border.all(color: Colors.white.withOpacity(0.2), width: 1),
           color: isHighlighted ? null : const Color(0xFFAA1F23),
-          // Apply gradient only for highlighted item
           gradient: isHighlighted
               ? const RadialGradient(
-            colors: [
-              Color(0xff5949E6),
-              Color(0xffE50914),
-            ],
-            center: Alignment.topCenter,
-            radius: 2.0,
-          )
+                  colors: [
+                    Color(0xff5949E6),
+                    Color(0xffE50914),
+                  ],
+                  center: Alignment.topCenter,
+                  radius: 2.0,
+                )
               : null,
           borderRadius: BorderRadius.circular(12),
         ),
@@ -246,7 +240,7 @@ Widget buildTokenPackage(
                   fontSize: 25, fontWeight: FontWeight.w900),
             ),
             Text(
-              'Jeton',
+              AppLocalizations.of(context)!.translate('token'),
               style: CustomTextStyle.circular15px500wWhite,
             ),
             const SizedBox(height: 8),
@@ -255,13 +249,13 @@ Widget buildTokenPackage(
               style: CustomTextStyle.circular15px500wWhite,
             ),
             Text(
-              'Başına haftalık',
-              style: CustomTextStyle.circular12px400wWhite.copyWith(fontSize: 10),
+              AppLocalizations.of(context)!.translate('weekly'),
+              style:
+                  CustomTextStyle.circular12px400wWhite.copyWith(fontSize: 10),
             ),
           ],
         ),
       ),
-      // The stacked percentage indicator on top
       Positioned(
         top: -10,
         left: 0,
@@ -274,18 +268,12 @@ Widget buildTokenPackage(
                   isHighlighted ? Colors.purple.shade900 : Colors.red.shade900,
               borderRadius: BorderRadius.circular(12),
               border: Border.all(
-                color: Colors.white.withOpacity(0.3),
+                color: Colors.white.withOpacity(0.6),
                 width: 1,
               ),
             ),
-            child: Text(
-              bonusText,
-              style: const TextStyle(
-                color: Colors.white,
-                fontSize: 12,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
+            child:
+                Text(bonusText, style: CustomTextStyle.circular12px400wWhite),
           ),
         ),
       ),

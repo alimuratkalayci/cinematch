@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'package:cinematch/components/custom_app_bar.dart';
 import 'package:cinematch/constants/ui_theme.dart';
+import 'package:cinematch/core/localization/app_localizations.dart';
 import 'package:cinematch/features/profile_screen/details_page/photo_add_page/provider/photo_add_page_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -36,15 +37,12 @@ class _PhotoAddPageState extends State<PhotoAddPage> {
                     child: Column(
                       children: [
                         Text(
-                          'Fotoğraflarınızı Yükleyin',
+                          AppLocalizations.of(context)!
+                              .translate('upload_your_photo'),
                           style: CustomTextStyle.circular18px600wWhite,
                         ),
-                        Padding(
-                          padding: const EdgeInsets.only(top: 8, bottom: 36),
-                          child: Text(
-                            'Resources out incentivize relaxation floor loss cc.',
-                            style: CustomTextStyle.circular13px400wWhite,
-                          ),
+                        SizedBox(
+                          height: 24,
                         ),
                         GestureDetector(
                           onTap: () async {
@@ -52,7 +50,8 @@ class _PhotoAddPageState extends State<PhotoAddPage> {
                           },
                           child: Builder(
                             builder: (context) {
-                              final screenWidth = MediaQuery.of(context).size.width;
+                              final screenWidth =
+                                  MediaQuery.of(context).size.width;
                               final containerSize = screenWidth * 0.5;
 
                               return Container(
@@ -61,33 +60,29 @@ class _PhotoAddPageState extends State<PhotoAddPage> {
                                 decoration: BoxDecoration(
                                   color: Colors.blueGrey,
                                   borderRadius: BorderRadius.circular(12),
-                                  border: Border.all(color: Colors.white.withOpacity(0.3), width: 2),
+                                  border: Border.all(
+                                      color: Colors.white.withOpacity(0.3),
+                                      width: 2),
                                 ),
                                 child: Center(
                                   child: photoProvider.image == null
-                                      ? Icon(Icons.add, color: Colors.white, size: 40)
+                                      ? Icon(Icons.add,
+                                          color: Colors.white, size: 40)
                                       : ClipRRect(
-                                    borderRadius: BorderRadius.circular(12),
-                                    child: Image.file(
-                                      File(photoProvider.image!.path),
-                                      fit: BoxFit.cover,
-                                      width: double.infinity,
-                                      height: double.infinity,
-                                    ),
-                                  ),
+                                          borderRadius:
+                                              BorderRadius.circular(12),
+                                          child: Image.file(
+                                            File(photoProvider.image!.path),
+                                            fit: BoxFit.cover,
+                                            width: double.infinity,
+                                            height: double.infinity,
+                                          ),
+                                        ),
                                 ),
                               );
                             },
                           ),
                         ),
-                        if (photoProvider.photoUrl != null)
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Text(
-                              'Base64 Uzunluk: ${photoProvider.photoUrl!.length}',
-                              style: CustomTextStyle.circular13px400wWhite,
-                            ),
-                          ),
                       ],
                     ),
                   ),
@@ -101,8 +96,9 @@ class _PhotoAddPageState extends State<PhotoAddPage> {
                           onPressed: () async {
                             await photoProvider.submitPhoto(context);
                             Navigator.pop(context);
-                            context.read<ProfilePageProvider>().fetchProfileDatas();
-
+                            context
+                                .read<ProfilePageProvider>()
+                                .fetchProfileDatas();
                           },
                           style: ElevatedButton.styleFrom(
                             backgroundColor: AppColors.buttonRed,
@@ -112,7 +108,7 @@ class _PhotoAddPageState extends State<PhotoAddPage> {
                             ),
                           ),
                           child: Text(
-                            'Devam Et',
+                            AppLocalizations.of(context)!.translate('continue'),
                             style: CustomTextStyle.circular15px500wWhite,
                           ),
                         ),

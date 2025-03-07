@@ -1,7 +1,6 @@
 import 'package:cinematch/constants/ui_theme.dart';
 import 'package:flutter/material.dart';
 
-
 Future<void> showCustomModal({
   required BuildContext context,
   required String title,
@@ -41,17 +40,17 @@ Future<void> showCustomModal({
             ),
             SizedBox(height: 16),
             Padding(
-              padding: const EdgeInsets.only(top: 0,bottom: 16,left: 8,right: 8),
+              padding:
+                  const EdgeInsets.only(top: 0, bottom: 16, left: 8, right: 8),
               child: Text(
                 title,
                 style: CustomTextStyle.circular18px600wWhite.copyWith(
-                  decoration: TextDecoration.underline,
-                  decorationColor: Colors.white
-                ),
+                    decoration: TextDecoration.underline,
+                    decorationColor: Colors.white),
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(bottom: 16,left: 8,right: 8),
+              padding: const EdgeInsets.only(bottom: 16, left: 8, right: 8),
               child: Text(
                 message,
                 style: CustomTextStyle.circular15px500wWhite,
@@ -64,7 +63,8 @@ Future<void> showCustomModal({
                     padding: const EdgeInsets.symmetric(vertical: 16),
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                        padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 32),
+                        padding: const EdgeInsets.symmetric(
+                            vertical: 16, horizontal: 32),
                         backgroundColor: const Color(0xffE50914),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(18.0),
@@ -73,7 +73,10 @@ Future<void> showCustomModal({
                       onPressed: () {
                         Navigator.of(context).pop();
                       },
-                      child: Text('Okay', style: CustomTextStyle.circular15pxMediumWhite,),
+                      child: Text(
+                        'Okay',
+                        style: CustomTextStyle.circular15pxMediumWhite,
+                      ),
                     ),
                   ),
                 ),

@@ -85,7 +85,10 @@ class LoginScreen extends StatelessWidget {
                                     final password = passwordController.text;
 
                                     if (email.isEmpty || password.isEmpty) {
-                                      showCustomModal(context: context, title: 'Hata', message: 'Boş alan bırakılmaz.');
+                                      showCustomModal(
+                                          context: context,
+                                          title: 'Hata',
+                                          message: 'Boş alan bırakılmaz.');
                                       return;
                                     }
 
@@ -100,7 +103,11 @@ class LoginScreen extends StatelessWidget {
                                               builder: (BuildContext context) =>
                                                   RootScreen()));
                                     } catch (e) {
-                                      showCustomModal(context: context, title: 'Giriş başarısız', message: 'Lütfen bilgilerinizi kontrol edin');
+                                      showCustomModal(
+                                          context: context,
+                                          title: 'Giriş başarısız',
+                                          message:
+                                              'Lütfen bilgilerinizi kontrol edin');
                                     }
                                   },
                                 ),

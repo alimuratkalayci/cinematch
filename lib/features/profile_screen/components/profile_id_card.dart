@@ -2,11 +2,17 @@ import 'package:cinematch/constants/ui_theme.dart';
 import 'package:cinematch/features/profile_screen/details_page/photo_add_page/photo_add_page.dart';
 import 'package:flutter/material.dart';
 
+import '../../../core/localization/app_localizations.dart';
+
 class ProfileIdCard extends StatelessWidget {
   final String id;
   final String name;
   final String photoUrl;
-  const ProfileIdCard({super.key, required this.id, required this.name, required this.photoUrl});
+  const ProfileIdCard(
+      {super.key,
+      required this.id,
+      required this.name,
+      required this.photoUrl});
 
   @override
   Widget build(BuildContext context) {
@@ -17,9 +23,8 @@ class ProfileIdCard extends StatelessWidget {
         children: [
           CircleAvatar(
             radius: 32,
-            backgroundImage: photoUrl.isNotEmpty
-                ? NetworkImage(photoUrl)
-                : null,
+            backgroundImage:
+                photoUrl.isNotEmpty ? NetworkImage(photoUrl) : null,
             backgroundColor: Colors.grey[800],
             child: photoUrl.isEmpty
                 ? Icon(Icons.person, color: Colors.white, size: 32)
@@ -31,17 +36,13 @@ class ProfileIdCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
+                Text(name, style: CustomTextStyle.circular15px500wWhite),
                 Text(
-                  name,
-                  style: CustomTextStyle.circular15px500wWhite
-                ),
-                Text(
-                  'ID: ${id.substring(0,6)}',
+                  'ID: ${id.substring(0, 6)}',
                   style: CustomTextStyle.circular12px400wWhiteOpacity50,
                   overflow: TextOverflow.ellipsis,
                   maxLines: 1,
                 )
-
               ],
             ),
           ),
@@ -70,7 +71,7 @@ class ProfileIdCard extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16),
               child: Text(
-                'Fotoğraf Ekle',
+                AppLocalizations.of(context)!.translate('add_photo'),
                 style: CustomTextStyle.circular13pxBoldWhite,
               ),
             ),

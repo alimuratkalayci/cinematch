@@ -84,7 +84,6 @@ class CustomTextStyle {
     fontSize: 15,
     color: Color(0xffFFFFFF),
   );
-
 }
 
 class AppColors {

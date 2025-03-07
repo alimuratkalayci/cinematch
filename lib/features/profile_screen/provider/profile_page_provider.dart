@@ -12,11 +12,10 @@ class ProfilePageProvider with ChangeNotifier {
   // Getter'lar
   Data? get profileData => _profilePageDataModel?.data;
 
-
   final ProfileWebService _profileWebService = ProfileWebService();
-  final FavoriteMovieListWebService _favoriteMovieListWebService = FavoriteMovieListWebService();
+  final FavoriteMovieListWebService _favoriteMovieListWebService =
+      FavoriteMovieListWebService();
 
-  // Profil verilerini çekme
   Future<void> fetchProfileDatas() async {
     try {
       final response = await _profileWebService.fetchProfileDatas();
@@ -42,23 +41,24 @@ class ProfilePageProvider with ChangeNotifier {
 
   Future<void> fetchMovies() async {
     _isLoading = true;
-    notifyListeners(); // Verinin yüklendiği ve değişeceği konusunda dinleyicilere bilgi veriyoruz.
+    notifyListeners();
 
-    final response = await _favoriteMovieListWebService.fetchFavoriteMovieList();
+    final response =
+        await _favoriteMovieListWebService.fetchFavoriteMovieList();
 
     if (response.statusCode == 200) {
       final Map<String, dynamic> data = json.decode(response.body);
       final List<dynamic> movieList = data['data'];
 
-      _movies = movieList.map((movie) => FavoriteMoviesModel.fromJson(movie)).toList();
-      notifyListeners(); // Yeni filmlerle _movies güncellendikten sonra listeners'ı bilgilendiriyoruz.
+      _movies = movieList
+          .map((movie) => FavoriteMoviesModel.fromJson(movie))
+          .toList();
+      notifyListeners();
     } else {
       throw Exception('Failed to load movies');
     }
 
     _isLoading = false;
-    notifyListeners(); // Yükleme tamamlandıktan sonra tekrar dinleyicileri bilgilendiriyoruz.
+    notifyListeners();
   }
-
-
 }

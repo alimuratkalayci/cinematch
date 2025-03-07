@@ -1,3 +1,4 @@
+import 'package:cinematch/core/localization/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:cinematch/features/home_screen/models/movie_list_models.dart';
 import 'package:iconly/iconly.dart';
@@ -65,9 +66,7 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
                       Expanded(
                         child: ElevatedButton(
                           onPressed: () {
-                            // context.read<ProfilePageProvider>().fetchProfileDatas();
                             context.read<ProfilePageProvider>().fetchMovies();
-                            // context.read<HomeScreenProvider>().fetchMovies();
                             Navigator.pop(context);
                           },
                           style: ElevatedButton.styleFrom(
@@ -78,7 +77,7 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
                             ),
                           ),
                           child: Text(
-                            'Geri',
+                            AppLocalizations.of(context)!.translate('go_back'),
                             style: CustomTextStyle.circular15px500wWhite,
                           ),
                         ),
@@ -106,11 +105,13 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
       children: [
         Text(
           widget.movie.released,
-          style: CustomTextStyle.circular13px400wWhite.copyWith(color: AppColors.buttonRed),
+          style: CustomTextStyle.circular13px400wWhite
+              .copyWith(color: AppColors.buttonRed),
         ),
         Text(
           widget.movie.genre,
-          style: CustomTextStyle.circular13px400wWhite.copyWith(color: AppColors.buttonRed),
+          style: CustomTextStyle.circular13px400wWhite
+              .copyWith(color: AppColors.buttonRed),
         ),
         Padding(
           padding: const EdgeInsets.only(top: 16),
@@ -127,7 +128,9 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
               });
             },
             child: Text(
-              _isExpanded ? "Daha Az" : "Daha Fazlası",
+              _isExpanded
+                  ? AppLocalizations.of(context)!.translate('less')
+                  : AppLocalizations.of(context)!.translate('more'),
               style: CustomTextStyle.circular13px700wWhite,
             ),
           ),
@@ -138,7 +141,6 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
   Widget _buildPosterImage(Size screenSize) {
     String imageUrl = widget.movie.poster;
 
-    // Eğer HTTP kullanılıyorsa HTTPS olarak değiştir
     if (imageUrl.startsWith("http://")) {
       imageUrl = imageUrl.replaceFirst("http://", "https://");
     }
@@ -173,7 +175,7 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
             left: 0,
             right: 0,
             child: Container(
-              height: 80, // Gradient yüksekliği
+              height: 80,
               decoration: BoxDecoration(
                 gradient: LinearGradient(
                   begin: Alignment.topCenter,

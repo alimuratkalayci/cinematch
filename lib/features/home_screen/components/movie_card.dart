@@ -1,3 +1,4 @@
+import 'package:cinematch/core/localization/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:iconly/iconly.dart';
@@ -19,14 +20,13 @@ class MovieCard extends StatefulWidget {
 }
 
 class _MovieCardState extends State<MovieCard> {
-  bool _isFavorite = false;
   int _currentIndex = 0;
-  final CarouselSliderController _carouselController = CarouselSliderController();
+  final CarouselSliderController _carouselController =
+      CarouselSliderController();
 
   @override
   void initState() {
     super.initState();
-    _isFavorite = widget.movie.isFavorite;
   }
 
   @override
@@ -68,7 +68,7 @@ class _MovieCardState extends State<MovieCard> {
                   enlargeCenterPage: true,
                   enableInfiniteScroll: true,
                   viewportFraction: 1.0,
-                  autoPlay: false, // Otomatik kaydırma kapalı
+                  autoPlay: false,
                   onPageChanged: (index, reason) {
                     setState(() {
                       _currentIndex = index;
@@ -76,15 +76,13 @@ class _MovieCardState extends State<MovieCard> {
                   },
                 ),
               ),
-
-              // Dots Indicator
               Positioned(
                 bottom: 10,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: List.generate(
                     widget.movie.images.length,
-                        (index) => Container(
+                    (index) => Container(
                       width: _currentIndex == index ? 8 : 6,
                       height: _currentIndex == index ? 8 : 6,
                       margin: const EdgeInsets.symmetric(horizontal: 4),
@@ -100,7 +98,6 @@ class _MovieCardState extends State<MovieCard> {
               ),
             ],
           ),
-
           Row(
             children: [
               Expanded(
@@ -116,14 +113,15 @@ class _MovieCardState extends State<MovieCard> {
                         overflow: TextOverflow.ellipsis,
                       ),
                       Text(
-                        '${widget.movie.year} • ${widget.movie.genre.split(',').first.trim()}',
+                        '${widget.movie.year} • ${AppLocalizations.of(context)!.translate('${widget.movie.genre.split(',').first.trim()}')}',
                         style: CustomTextStyle.circular13px400wWhite
                             .copyWith(color: Colors.white.withOpacity(0.7)),
                       ),
                       const SizedBox(height: 8),
                       Row(
                         children: [
-                          const Icon(IconlyBold.star, color: Colors.amber, size: 13),
+                          const Icon(IconlyBold.star,
+                              color: Colors.amber, size: 13),
                           const SizedBox(width: 4),
                           Text(
                             widget.movie.imdbRating,

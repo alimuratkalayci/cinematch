@@ -4,18 +4,16 @@ import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 import '../services/auth_services.dart';
 
-
 class AuthProvider with ChangeNotifier {
-
   final AuthServices _authServices = AuthServices();
 
   final FlutterSecureStorage _secureStorage = const FlutterSecureStorage();
 
-
-
-  Future<void> postRegistrationProvider(String email, String name, String password) async {
+  Future<void> postRegistrationProvider(
+      String email, String name, String password) async {
     try {
-      final response = await _authServices.postRegistrationProcess(email: email, name: name, password: password);
+      final response = await _authServices.postRegistrationProcess(
+          email: email, name: name, password: password);
 
       if (response.statusCode == 200) {
         debugPrint('API Yanıtı: ${response.body}');
@@ -41,7 +39,8 @@ class AuthProvider with ChangeNotifier {
 
   Future<void> postLoginProvider(String email, String password) async {
     try {
-      final response = await _authServices.postLoginProcess(email: email, password: password);
+      final response = await _authServices.postLoginProcess(
+          email: email, password: password);
 
       if (response.statusCode == 200) {
         debugPrint('API Yanıtı: ${response.body}');

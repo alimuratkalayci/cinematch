@@ -4,7 +4,8 @@ import '../../../../../constants/ui_theme.dart';
 class RegisterPageSignUpButton extends StatelessWidget {
   final VoidCallback onPressed;
 
-  const RegisterPageSignUpButton({Key? key, required this.onPressed}) : super(key: key);
+  const RegisterPageSignUpButton({Key? key, required this.onPressed})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {

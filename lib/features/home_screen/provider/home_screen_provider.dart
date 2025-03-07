@@ -14,7 +14,8 @@ class HomeScreenProvider extends ChangeNotifier {
 
   final HomeScreenWebService _homeScreenWebService = HomeScreenWebService();
 
-  final FavoriteMovieWebService _favoriteMovieWebService = FavoriteMovieWebService();
+  final FavoriteMovieWebService _favoriteMovieWebService =
+      FavoriteMovieWebService();
 
   // Getter'lar
   MovieList? get movieList => _movieList;
@@ -37,7 +38,8 @@ class HomeScreenProvider extends ChangeNotifier {
     notifyListeners();
 
     try {
-      final response = await _homeScreenWebService.fetchHomeScreenDatas(_currentPage);
+      final response =
+          await _homeScreenWebService.fetchHomeScreenDatas(_currentPage);
 
       final movieList = MovieList.fromJson(json.decode(response.body));
 
@@ -66,7 +68,8 @@ class HomeScreenProvider extends ChangeNotifier {
 
       int index = movies.indexWhere((movie) => movie.id == movieId);
       if (index != -1) {
-        _movieList!.data.movies[index] = _movieList!.data.movies[index].copyWith(
+        _movieList!.data.movies[index] =
+            _movieList!.data.movies[index].copyWith(
           isFavorite: !_movieList!.data.movies[index].isFavorite,
         );
       }
@@ -76,6 +79,4 @@ class HomeScreenProvider extends ChangeNotifier {
       print('Favori güncelleme hatası: $e');
     }
   }
-
-
 }

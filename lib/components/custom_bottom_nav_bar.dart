@@ -4,6 +4,7 @@ import 'package:iconly/iconly.dart';
 import 'package:provider/provider.dart';
 import '../../providers/root_screen_provider.dart';
 import '../constants/ui_theme.dart';
+import '../core/localization/app_localizations.dart';
 
 class CustomNavBar extends StatelessWidget {
   const CustomNavBar({super.key});
@@ -16,14 +17,15 @@ class CustomNavBar extends StatelessWidget {
       color: AppColors.backgroundColor,
       child: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.only(top: 8,bottom: 0),
+          padding: const EdgeInsets.only(top: 8, bottom: 0),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               GestureDetector(
                 onTap: () => pageProvider.changePage(0),
                 child: Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 16.0, vertical: 8.0),
                   decoration: BoxDecoration(
                     border: Border.all(
                       color: pageProvider.currentPage == 0
@@ -38,28 +40,27 @@ class CustomNavBar extends StatelessWidget {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Icon(
-                            IconlyLight.home,
-                            color: Colors.white,
-                            size: 32
-                        ),
+                        Icon(IconlyLight.home, color: Colors.white, size: 32),
                         Padding(
                           padding: const EdgeInsets.only(left: 8.0),
                           child: Text(
-                              'Anasayfa',
-                              style: CustomTextStyle.circular15px500wWhite
-                          ),
+                              AppLocalizations.of(context)!
+                                  .translate('home_page'),
+                              style: CustomTextStyle.circular15px500wWhite),
                         ),
                       ],
                     ),
                   ),
                 ),
               ),
-              SizedBox(width: 16,),
+              SizedBox(
+                width: 16,
+              ),
               GestureDetector(
                 onTap: () => pageProvider.changePage(1),
                 child: Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 16.0, vertical: 8.0),
                   decoration: BoxDecoration(
                     border: Border.all(
                       color: pageProvider.currentPage == 1
@@ -83,9 +84,9 @@ class CustomNavBar extends StatelessWidget {
                         Padding(
                           padding: const EdgeInsets.only(left: 8.0),
                           child: Text(
-                              'Profil',
-                              style: CustomTextStyle.circular15px500wWhite
-                          ),
+                              AppLocalizations.of(context)!
+                                  .translate('profile'),
+                              style: CustomTextStyle.circular15px500wWhite),
                         ),
                       ],
                     ),

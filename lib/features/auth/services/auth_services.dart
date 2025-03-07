@@ -11,7 +11,6 @@ class AuthServices {
     required String password,
   }) async {
     try {
-
       final url = Uri.parse(baseUrlRegister);
 
       final response = await http.post(
@@ -41,9 +40,8 @@ class AuthServices {
   Future<http.Response> postLoginProcess({
     required String email,
     required String password,
-}) async {
+  }) async {
     try {
-
       final url = Uri.parse(baseUrlLogin);
 
       final response = await http.post(

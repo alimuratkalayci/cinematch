@@ -114,23 +114,34 @@ class RegisterScreen extends StatelessWidget {
                                   onPressed: () async {
                                     final email = emailController.text;
                                     final password = passwordController.text;
-                                    final passwordRepeat = passwordRepeatController.text;
+                                    final passwordRepeat =
+                                        passwordRepeatController.text;
                                     final name = nameController.text;
 
-                                    if (email.isEmpty || password.isEmpty || passwordRepeat.isEmpty || name.isEmpty) {
-                                      showCustomModal(context: context, title: 'Hata', message: 'Boş alan bırakılmaz.');
+                                    if (email.isEmpty ||
+                                        password.isEmpty ||
+                                        passwordRepeat.isEmpty ||
+                                        name.isEmpty) {
+                                      showCustomModal(
+                                          context: context,
+                                          title: 'Hata',
+                                          message: 'Boş alan bırakılmaz.');
                                       return;
                                     }
 
                                     if (password != passwordRepeat) {
-                                      showCustomModal(context: context, title: 'Hata', message: 'Şifreler uyuşmuyor.');
+                                      showCustomModal(
+                                          context: context,
+                                          title: 'Hata',
+                                          message: 'Şifreler uyuşmuyor.');
                                       return;
                                     }
 
                                     try {
                                       await Provider.of<AuthProvider>(context,
-                                          listen: false)
-                                          .postRegistrationProvider(email, name, password);
+                                              listen: false)
+                                          .postRegistrationProvider(
+                                              email, name, password);
 
                                       Navigator.pushReplacement(
                                           context,
@@ -138,12 +149,16 @@ class RegisterScreen extends StatelessWidget {
                                               builder: (BuildContext context) =>
                                                   LoginScreen()));
 
-                                      showCustomModal(context: context, title: 'Başarılı', message: 'Kayıt olma başarıyla tamamlandı, giriş yapabilirsiniz');
-
+                                      showCustomModal(
+                                          context: context,
+                                          title: 'Başarılı',
+                                          message:
+                                              'Kayıt olma başarıyla tamamlandı, giriş yapabilirsiniz');
                                     } catch (e) {
-
-                                      showCustomModal(context: context, title: 'Hata', message: 'Kayıt olma başarısız');
-
+                                      showCustomModal(
+                                          context: context,
+                                          title: 'Hata',
+                                          message: 'Kayıt olma başarısız');
                                     }
                                   },
                                 ),

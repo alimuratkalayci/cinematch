@@ -17,18 +17,20 @@ class FavoriteMoviesCard extends StatelessWidget {
       children: [
         Expanded(
           child: ClipRRect(
-            borderRadius: BorderRadius.circular(8), // Resme radius ekledik
+            borderRadius: BorderRadius.circular(8),
             child: Image.network(
-              movie.images[0], // Film posteri
+              movie.images[0],
               width: double.infinity,
               fit: BoxFit.cover,
             ),
           ),
         ),
         Padding(
-          padding: const EdgeInsets.only(top: 16,),
+          padding: const EdgeInsets.only(
+            top: 16,
+          ),
           child: Text(
-            movie.title, // Film adı
+            movie.title,
             style: CustomTextStyle.circular12px500wWhite,
           ),
         ),
@@ -40,4 +42,3 @@ class FavoriteMoviesCard extends StatelessWidget {
     );
   }
 }
-

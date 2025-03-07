@@ -9,6 +9,7 @@ class RootScreenProvider with ChangeNotifier {
     _currentPage = page;
     notifyListeners();
   }
+
   void resetPage() {
     _currentPage = 0;
     notifyListeners();

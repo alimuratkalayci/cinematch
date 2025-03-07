@@ -6,16 +6,13 @@ class ProfileWebService {
   final FlutterSecureStorage storage = FlutterSecureStorage();
 
   Future fetchProfileDatas() async {
-
     final token = await storage.read(key: 'token');
 
     if (token == null) {
       throw Exception('Token eksik');
     }
 
-
     final url = Uri.parse(baseUrl);
-
 
     final response = await http.get(
       url,

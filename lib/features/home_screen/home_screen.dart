@@ -1,7 +1,9 @@
+import 'package:cinematch/components/custom_app_bar.dart';
 import 'package:cinematch/features/home_screen/provider/home_screen_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../constants/ui_theme.dart';
+import '../../core/localization/app_localizations.dart';
 import 'components/movie_card.dart';
 import 'details_pages/movie_details_page/movie_details_page.dart';
 
@@ -44,14 +46,15 @@ class _HomeScreenState extends State<HomeScreen> {
 
     return Scaffold(
       backgroundColor: AppColors.backgroundColor,
+      appBar: CustomAppBar(title: 'explore'),
       body: SafeArea(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
-              padding: const EdgeInsets.all(16.0),
+              padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
               child: Text(
-                'Filmler',
+                AppLocalizations.of(context)!.translate('movies'),
                 style: CustomTextStyle.circular18px600wWhite,
               ),
             ),

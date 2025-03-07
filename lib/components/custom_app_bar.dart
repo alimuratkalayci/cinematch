@@ -4,6 +4,7 @@ import 'package:iconly/iconly.dart';
 import 'package:lottie/lottie.dart';
 
 import '../constants/ui_theme.dart';
+import '../core/localization/app_localizations.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
@@ -26,14 +27,13 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       title: Stack(
         alignment: Alignment.center,
         children: [
-          // Centered "Profil" text
           Padding(
             padding: const EdgeInsets.all(24.0),
             child: Center(
-              child: Text(title, style: CustomTextStyle.circular18px600wWhite),
+              child: Text(AppLocalizations.of(context)!.translate('${title}'),
+                  style: CustomTextStyle.circular18px600wWhite),
             ),
           ),
-
           if (showLimitedOffer)
             Positioned(
               right: 0,
@@ -51,21 +51,25 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                       limitedOfferModal(context: context);
                     },
                     child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 8, vertical: 4),
                       child: Row(
-                        mainAxisSize: MainAxisSize.min,
                         children: [
                           SizedBox(
                             width: 24,
-                            height: 24,
+                            height: 32,
                             child: Lottie.network(
                               'https://lottie.host/79ebeea2-7a18-47d5-a0d7-8ffed5396f98/b3jE3s3M2a.json',
                               fit: BoxFit.cover,
                             ),
                           ),
+                          SizedBox(
+                            width: 8,
+                          ),
                           Text(
-                            "Sınırlı Teklif",
-                            style: CustomTextStyle.circular12px500wWhite,
+                            AppLocalizations.of(context)!
+                                .translate('limited_offer'),
+                            style: CustomTextStyle.circular13px700wWhite,
                           ),
                         ],
                       ),
@@ -74,7 +78,6 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                 ),
               ),
             ),
-
           if (showLeading)
             Positioned(
               left: 0,

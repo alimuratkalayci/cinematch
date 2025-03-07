@@ -4,9 +4,11 @@
 
 import 'dart:convert';
 
-ProfilePageDataModel profilePageDataModelFromJson(String str) => ProfilePageDataModel.fromJson(json.decode(str));
+ProfilePageDataModel profilePageDataModelFromJson(String str) =>
+    ProfilePageDataModel.fromJson(json.decode(str));
 
-String profilePageDataModelToJson(ProfilePageDataModel data) => json.encode(data.toJson());
+String profilePageDataModelToJson(ProfilePageDataModel data) =>
+    json.encode(data.toJson());
 
 class ProfilePageDataModel {
   final Response response;
@@ -17,15 +19,16 @@ class ProfilePageDataModel {
     required this.data,
   });
 
-  factory ProfilePageDataModel.fromJson(Map<String, dynamic> json) => ProfilePageDataModel(
-    response: Response.fromJson(json["response"]),
-    data: Data.fromJson(json["data"]),
-  );
+  factory ProfilePageDataModel.fromJson(Map<String, dynamic> json) =>
+      ProfilePageDataModel(
+        response: Response.fromJson(json["response"]),
+        data: Data.fromJson(json["data"]),
+      );
 
   Map<String, dynamic> toJson() => {
-    "response": response.toJson(),
-    "data": data.toJson(),
-  };
+        "response": response.toJson(),
+        "data": data.toJson(),
+      };
 }
 
 class Data {
@@ -46,22 +49,22 @@ class Data {
   });
 
   factory Data.fromJson(Map<String, dynamic> json) => Data(
-    id: json["_id"],
-    dataId: json["id"],
-    name: json["name"],
-    email: json["email"],
-    photoUrl: json["photoUrl"],
-    token: json["token"],
-  );
+        id: json["_id"],
+        dataId: json["id"],
+        name: json["name"],
+        email: json["email"],
+        photoUrl: json["photoUrl"],
+        token: json["token"],
+      );
 
   Map<String, dynamic> toJson() => {
-    "_id": id,
-    "id": dataId,
-    "name": name,
-    "email": email,
-    "photoUrl": photoUrl,
-    "token": token,
-  };
+        "_id": id,
+        "id": dataId,
+        "name": name,
+        "email": email,
+        "photoUrl": photoUrl,
+        "token": token,
+      };
 }
 
 class Response {
@@ -74,12 +77,12 @@ class Response {
   });
 
   factory Response.fromJson(Map<String, dynamic> json) => Response(
-    code: json["code"],
-    message: json["message"],
-  );
+        code: json["code"],
+        message: json["message"],
+      );
 
   Map<String, dynamic> toJson() => {
-    "code": code,
-    "message": message,
-  };
+        "code": code,
+        "message": message,
+      };
 }
