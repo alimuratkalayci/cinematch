@@ -34,9 +34,8 @@ class _MovieCardState extends State<MovieCard> {
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       decoration: BoxDecoration(
-        color: Colors.white.withOpacity(0.2),
-        borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: Colors.white.withOpacity(0.2), width: 1),
+        color: Colors.white.withOpacity(0.3),
+        borderRadius: BorderRadius.circular(24),
       ),
       child: Column(
         children: [
@@ -46,7 +45,7 @@ class _MovieCardState extends State<MovieCard> {
               CarouselSlider(
                 items: widget.movie.images.map((imageUrl) {
                   return ClipRRect(
-                    borderRadius: BorderRadius.circular(12),
+                    borderRadius: BorderRadius.circular(24),
                     child: Image.network(
                       imageUrl,
                       width: double.infinity,

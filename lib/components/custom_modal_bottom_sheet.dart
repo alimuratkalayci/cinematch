@@ -60,18 +60,21 @@ Future<void> showCustomModal({
             Row(
               children: [
                 Expanded(
-                  child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 32),
-                      backgroundColor: const Color(0xffE50914),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(18.0),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 16),
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 32),
+                        backgroundColor: const Color(0xffE50914),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(18.0),
+                        ),
                       ),
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                      },
+                      child: Text('Okay', style: CustomTextStyle.circular15pxMediumWhite,),
                     ),
-                    onPressed: () {
-                      Navigator.of(context).pop();
-                    },
-                    child: Text('Okay', style: CustomTextStyle.circular15pxMediumWhite,),
                   ),
                 ),
               ],

@@ -60,8 +60,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   builder: (context, provider, child) {
                     final favoriteMovies = profilePagemovies;
                     return favoriteMovies.isEmpty
-                        ? const Center(
-                        child: Text('Henüz favori film eklemediniz'))
+                        ? Center(
+                        child: Text('Henüz favori film eklemediniz',style: CustomTextStyle.circular18px600wWhite,))
                         : GridView.builder(
                       physics: const AlwaysScrollableScrollPhysics(),
                       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(

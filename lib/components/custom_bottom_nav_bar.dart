@@ -16,7 +16,7 @@ class CustomNavBar extends StatelessWidget {
       color: AppColors.backgroundColor,
       child: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.only(top: 16,bottom: 8),
+          padding: const EdgeInsets.only(top: 8,bottom: 0),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [

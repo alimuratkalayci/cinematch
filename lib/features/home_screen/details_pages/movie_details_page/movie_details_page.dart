@@ -59,7 +59,7 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.all(24),
+                  padding: const EdgeInsets.all(16),
                   child: Row(
                     children: [
                       Expanded(
@@ -120,8 +120,8 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
           ),
         ),
         if (isLongText)
-          TextButton(
-            onPressed: () {
+          GestureDetector(
+            onTap: () {
               setState(() {
                 _isExpanded = !_isExpanded;
               });
@@ -203,7 +203,7 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
                   child: IconButton(
                     icon: Icon(
                       _isFavorite ? IconlyBold.heart : IconlyBold.heart,
-                      color: _isFavorite ? Colors.red : Colors.white,
+                      color: _isFavorite ? AppColors.buttonRed : Colors.white,
                       size: 32,
                     ),
                     onPressed: () {

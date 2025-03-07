@@ -3,6 +3,8 @@ import 'package:cinematch/features/profile_screen/details_page/photo_add_page/se
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
+import '../../../../../components/custom_modal_bottom_sheet.dart';
+
 class PhotoAddPageProvider with ChangeNotifier {
   final PostPhotoUrlWebService _photoUrlService = PostPhotoUrlWebService();
   final ImagePicker _picker = ImagePicker();
@@ -31,9 +33,6 @@ class PhotoAddPageProvider with ChangeNotifier {
         final result = await _photoUrlService.postPhotoUrl(photo: File(_image!.path));
 
         if (result['success']) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text('Fotoğraf başarıyla yüklendi!')),
-          );
 
         } else {
           ScaffoldMessenger.of(context).showSnackBar(

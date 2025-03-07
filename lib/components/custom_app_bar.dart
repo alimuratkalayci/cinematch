@@ -1,3 +1,4 @@
+import 'package:cinematch/features/profile_screen/components/limited_offer_modal_bottom_sheet.dart';
 import 'package:flutter/material.dart';
 import 'package:iconly/iconly.dart';
 import 'package:lottie/lottie.dart';
@@ -47,27 +48,24 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                   child: InkWell(
                     borderRadius: BorderRadius.circular(25),
                     onTap: () {
-                      // Buton aksiyonu
+                      limitedOfferModal(context: context);
                     },
                     child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                       child: Row(
                         mainAxisSize: MainAxisSize.min,
                         children: [
-                          Padding(
-                            padding: const EdgeInsets.only(right: 24),
-                            child: SizedBox(
-                              width: 24,
-                              height: 24,
-                              child: Lottie.network(
-                                'https://lottie.host/f5127718-3f1f-4cf0-a77c-204fed17ba3b/gmbcHGk3fX.json',
-                                fit: BoxFit.cover,
-                              ),
+                          SizedBox(
+                            width: 24,
+                            height: 24,
+                            child: Lottie.network(
+                              'https://lottie.host/79ebeea2-7a18-47d5-a0d7-8ffed5396f98/b3jE3s3M2a.json',
+                              fit: BoxFit.cover,
                             ),
                           ),
                           Text(
                             "Sınırlı Teklif",
-                            style: CustomTextStyle.MontSerrat15pxMediumWhite,
+                            style: CustomTextStyle.circular12px500wWhite,
                           ),
                         ],
                       ),
