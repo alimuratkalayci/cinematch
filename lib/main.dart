@@ -6,9 +6,7 @@ import 'package:cinematch/providers/root_screen_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'core/localization/app_localizations.dart';
-import 'features/auth/screens/login_screen/login_screen.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-
 import 'features/splash_screen/splash_screen.dart';
 
 void main() {
@@ -44,13 +42,13 @@ class MyApp extends StatelessWidget {
             colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
             useMaterial3: true,
           ),
-          localizationsDelegates: [
+          localizationsDelegates: const [
             AppLocalizationsDelegate(),
             GlobalMaterialLocalizations.delegate,
             GlobalWidgetsLocalizations.delegate,
             GlobalCupertinoLocalizations.delegate,
           ],
-          supportedLocales: [
+          supportedLocales: const [
             Locale('en', ''),
             Locale('tr', ''),
           ],

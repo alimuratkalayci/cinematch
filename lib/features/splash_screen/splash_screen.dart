@@ -18,7 +18,7 @@ class SplashScreen extends StatelessWidget {
       body: SafeArea(
         child: Column(
           children: [
-            SizedBox(
+            const SizedBox(
               height: 64,
             ),
             Expanded(
@@ -45,7 +45,7 @@ class SplashScreen extends StatelessWidget {
                         color: Colors.white,
                       ),
                       children: <TextSpan>[
-                        TextSpan(
+                        const TextSpan(
                           text: "CineMatch",
                           style: TextStyle(
                             color: AppColors.buttonRed,  // CineMatch kısmı kırmızı olacak
@@ -56,8 +56,8 @@ class SplashScreen extends StatelessWidget {
                     ),
                     textAlign: TextAlign.center,
                   ),
-                  SizedBox(width: 8,),
-                  Icon(Icons.movie_creation_outlined,color: Colors.white,)
+                  const SizedBox(width: 8,),
+                  const Icon(Icons.movie_creation_outlined,color: Colors.white,)
                 ],
               ),
 
@@ -76,7 +76,7 @@ class SplashScreen extends StatelessWidget {
                 onPressed: () => Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => LoginScreen(),
+                    builder: (context) => const LoginScreen(),
                   ),
                 ),
                 child: Row(
@@ -87,7 +87,7 @@ class SplashScreen extends StatelessWidget {
                           .copyWith(color: Colors.white, fontSize: 16),
                     ),
                     const SizedBox(width: 8),
-                    Icon(Icons.arrow_forward_ios,
+                    const Icon(Icons.arrow_forward_ios,
                         size: 16, color: Colors.white)
                   ],
                 ),

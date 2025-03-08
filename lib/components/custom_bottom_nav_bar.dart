@@ -40,7 +40,7 @@ class CustomNavBar extends StatelessWidget {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Icon(IconlyLight.home, color: Colors.white, size: 32),
+                        const Icon(IconlyLight.home, color: Colors.white, size: 32),
                         Padding(
                           padding: const EdgeInsets.only(left: 8.0),
                           child: Text(
@@ -53,7 +53,7 @@ class CustomNavBar extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 width: 16,
               ),
               GestureDetector(

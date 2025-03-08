@@ -44,6 +44,7 @@ class AppLocalizations {
       'weekly': 'Weekly',
       'see_all_tokens': 'See all tokens',
       'token': 'Token',
+      'profile_detail': 'Profile Detail',
     },
     'tr': {
       'liked_movies': 'Beğendiğim Filmler',
@@ -79,6 +80,7 @@ class AppLocalizations {
       'weekly': 'Haftalık',
       'see_all_tokens': 'Tüm jetonları gör',
       'token': 'Jeton',
+      'profile_detail': 'Profil Detayı',
     },
   };
 

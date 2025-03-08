@@ -38,7 +38,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
             Positioned(
               right: 0,
               child: Container(
-                margin: EdgeInsets.symmetric(vertical: 6),
+                margin: const EdgeInsets.symmetric(vertical: 6),
                 decoration: BoxDecoration(
                   color: AppColors.buttonRed,
                   borderRadius: BorderRadius.circular(25),
@@ -63,7 +63,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                               fit: BoxFit.cover,
                             ),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             width: 8,
                           ),
                           Text(
@@ -92,7 +92,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                   borderRadius: BorderRadius.circular(24),
                 ),
                 child: IconButton(
-                  icon: Icon(IconlyLight.arrow_left, color: Colors.white),
+                  icon: const Icon(IconlyLight.arrow_left, color: Colors.white),
                   onPressed: () {
                     Navigator.pop(context);
                   },
@@ -106,5 +106,5 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   }
 
   @override
-  Size get preferredSize => Size.fromHeight(kToolbarHeight + 20);
+  Size get preferredSize => const Size.fromHeight(kToolbarHeight + 20);
 }

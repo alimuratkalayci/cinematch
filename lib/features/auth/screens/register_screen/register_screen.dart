@@ -40,7 +40,7 @@ class RegisterScreen extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        Spacer(),
+                        const Spacer(),
                         Center(
                             child: Text(
                           'Hoşgeldiniz',
@@ -147,7 +147,7 @@ class RegisterScreen extends StatelessWidget {
                                           context,
                                           MaterialPageRoute(
                                               builder: (BuildContext context) =>
-                                                  LoginScreen()));
+                                                  const LoginScreen()));
 
                                       showCustomModal(
                                           context: context,
@@ -193,9 +193,14 @@ class RegisterScreen extends StatelessWidget {
                                   onPressed: () {
                                     Navigator.push(
                                       context,
-                                      MaterialPageRoute(
-                                          builder: (context) =>
-                                              const LoginScreen()),
+                                      PageRouteBuilder(
+                                        pageBuilder: (context, animation, secondaryAnimation) =>
+                                            const LoginScreen(),
+                                        transitionsBuilder:
+                                            (context, animation, secondaryAnimation, child) {
+                                          return child;
+                                        },
+                                      ),
                                     );
                                   },
                                   child: Text(

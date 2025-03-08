@@ -37,7 +37,7 @@ class LoginScreen extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        Spacer(),
+                        const Spacer(),
                         Center(
                             child: Text(
                           'Merhabalar',
@@ -142,9 +142,14 @@ class LoginScreen extends StatelessWidget {
                                   onPressed: () {
                                     Navigator.push(
                                       context,
-                                      MaterialPageRoute(
-                                          builder: (context) =>
-                                              const RegisterScreen()),
+                                      PageRouteBuilder(
+                                        pageBuilder: (context, animation, secondaryAnimation) =>
+                                            const RegisterScreen(),
+                                        transitionsBuilder:
+                                            (context, animation, secondaryAnimation, child) {
+                                          return child;
+                                        },
+                                      ),
                                     );
                                   },
                                   child: Text(

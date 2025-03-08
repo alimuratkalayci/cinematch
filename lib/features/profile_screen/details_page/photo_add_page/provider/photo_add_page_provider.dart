@@ -49,7 +49,7 @@ class PhotoAddPageProvider with ChangeNotifier {
       }
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Lütfen önce bir fotoğraf seçin')),
+        const SnackBar(content: Text('Lütfen önce bir fotoğraf seçin')),
       );
     }
   }

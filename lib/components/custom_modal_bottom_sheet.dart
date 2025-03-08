@@ -10,7 +10,7 @@ Future<void> showCustomModal({
     context: context,
     isScrollControlled: true,
     backgroundColor: AppColors.backgroundColor,
-    shape: RoundedRectangleBorder(
+    shape: const RoundedRectangleBorder(
       borderRadius: BorderRadius.vertical(
         top: Radius.circular(32),
       ),
@@ -23,7 +23,7 @@ Future<void> showCustomModal({
       final notchHeight = screenHeight * 0.005;
 
       return Padding(
-        padding: EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(16.0),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -38,7 +38,7 @@ Future<void> showCustomModal({
                 ),
               ),
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             Padding(
               padding:
                   const EdgeInsets.only(top: 0, bottom: 16, left: 8, right: 8),

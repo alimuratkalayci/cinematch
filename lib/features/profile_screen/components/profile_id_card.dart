@@ -27,7 +27,7 @@ class ProfileIdCard extends StatelessWidget {
                 photoUrl.isNotEmpty ? NetworkImage(photoUrl) : null,
             backgroundColor: Colors.grey[800],
             child: photoUrl.isEmpty
-                ? Icon(Icons.person, color: Colors.white, size: 32)
+                ? const Icon(Icons.person, color: Colors.white, size: 32)
                 : null,
           ),
           Padding(
@@ -46,14 +46,14 @@ class ProfileIdCard extends StatelessWidget {
               ],
             ),
           ),
-          Spacer(),
+          const Spacer(),
           ElevatedButton(
             onPressed: () {
               Navigator.push(
                 context,
                 PageRouteBuilder(
                   pageBuilder: (context, animation, secondaryAnimation) =>
-                      PhotoAddPage(),
+                      const PhotoAddPage(),
                   transitionsBuilder:
                       (context, animation, secondaryAnimation, child) {
                     return child;

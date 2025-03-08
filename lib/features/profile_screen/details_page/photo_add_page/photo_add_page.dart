@@ -23,8 +23,8 @@ class _PhotoAddPageState extends State<PhotoAddPage> {
       child: Consumer<PhotoAddPageProvider>(
         builder: (context, photoProvider, child) {
           return Scaffold(
-            appBar: CustomAppBar(
-              title: 'Profil Detayı',
+            appBar: const CustomAppBar(
+              title: 'profile_detail',
               showLeading: true,
             ),
             backgroundColor: AppColors.backgroundColor,
@@ -41,7 +41,7 @@ class _PhotoAddPageState extends State<PhotoAddPage> {
                               .translate('upload_your_photo'),
                           style: CustomTextStyle.circular18px600wWhite,
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 24,
                         ),
                         GestureDetector(
@@ -66,7 +66,7 @@ class _PhotoAddPageState extends State<PhotoAddPage> {
                                 ),
                                 child: Center(
                                   child: photoProvider.image == null
-                                      ? Icon(Icons.add,
+                                      ? const Icon(Icons.add,
                                           color: Colors.white, size: 40)
                                       : ClipRRect(
                                           borderRadius:
@@ -102,7 +102,7 @@ class _PhotoAddPageState extends State<PhotoAddPage> {
                           },
                           style: ElevatedButton.styleFrom(
                             backgroundColor: AppColors.buttonRed,
-                            padding: EdgeInsets.symmetric(vertical: 16),
+                            padding: const EdgeInsets.symmetric(vertical: 16),
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(12),
                             ),
